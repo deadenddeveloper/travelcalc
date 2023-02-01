@@ -7,7 +7,11 @@ export const ThemeSwitcher = component$(() => {
   const theme = useContext(ThemeContext);
 
   return (
-    <button onClick$={() => theme.toggle && theme.toggle(theme)} title={`test`}>
+    <button
+      onClick$={() => theme.toggle && theme.toggle(theme)}
+      data-tooltip
+      title="some test text"
+    >
       <FaIcon
         icon={"dark" === theme.current ? faLightbulb : faMoon}
         class="h-6 w-6"
