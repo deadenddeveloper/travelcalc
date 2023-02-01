@@ -1,20 +1,16 @@
-import { component$, Slot } from '@builder.io/qwik';
-import Header from '../components/header/header';
+import { component$, Slot } from "@builder.io/qwik";
+import { Footer, Header } from "@/components/markup";
 
 export default component$(() => {
   return (
     <>
-      <main>
+      <main class="flex flex-col min-h-screen">
         <Header />
-        <section>
+        <section class="flex-grow">
           <Slot />
         </section>
+        <Footer />
       </main>
-      <footer>
-        <a href="https://www.builder.io/" target="_blank">
-          Made with ♡ by Builder.io
-        </a>
-      </footer>
     </>
   );
 });
