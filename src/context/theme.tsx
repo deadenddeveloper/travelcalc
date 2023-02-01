@@ -6,6 +6,7 @@ import {
   useContextProvider,
   $,
   QRL,
+  useClientEffect$,
 } from "@builder.io/qwik";
 
 export type ITheme = typeof availableThemes[number];
@@ -30,5 +31,19 @@ export const ThemeContextProvider = component$(() => {
 
   useContextProvider(ThemeContext, store);
 
-  return <Slot />;
+  useClientEffect$(
+    () => {
+      const stored = localStorage.getItem("theme") || defaultTheme;
+      if (availableThemes.indexOf(stored as ITheme)) {
+        store.current = stored as ITheme;
+      }
+    },
+    { eagerness: "load" }
+  );
+
+  return (
+    <body class={`theme-${store.current}`}>
+      <Slot />
+    </body>
+  );
 });
