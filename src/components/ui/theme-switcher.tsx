@@ -1,4 +1,5 @@
 import { component$, useContext } from "@builder.io/qwik";
+import { $translate as t } from "qwik-speak";
 import { ThemeContext } from "@/context/theme";
 import { FaIcon } from "~/components/ui/fa-icon";
 import { faLightbulb, faMoon } from "@fortawesome/free-solid-svg-icons";
@@ -10,7 +11,7 @@ export const ThemeSwitcher = component$(() => {
     <button
       onClick$={() => theme.toggle && theme.toggle(theme)}
       data-tooltip
-      title="some test text"
+      title={t("Switch theme")}
     >
       <FaIcon
         icon={"dark" === theme.current ? faLightbulb : faMoon}

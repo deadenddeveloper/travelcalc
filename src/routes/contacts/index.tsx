@@ -6,14 +6,14 @@ export default component$(() => {
   return (
     <Speak assets={["app"]}>
       <div class="container mx-auto">
-        <h1 class="text-4xl text-red-300">{t("Settings")}</h1>
+        <h1 class="text-4xl text-red-300">{t("Contacts")}</h1>
       </div>
     </Speak>
   );
 });
 
 export const head: DocumentHead = {
-  title: "Settings",
+  title: "Contacts",
   meta: [
     {
       name: "description",

@@ -1,6 +1,10 @@
 {
+  "Contacts": "Contacts",
+  "Currency converter for travelers": "Currency converter for travelers",
   "Hello": "Hello",
+  "Made for people by Roman Meyer": "Made for people by <a href='https://romanmeyer.dev/en' target='_blank' class='underline'>Roman Meyer</a>",
   "Main": "Main",
-  "Travel Calculator": "Travel Calculator",
-  "Currency converter for travelers": "Currency converter for travelers"
+  "Settings": "Settings",
+  "Switch theme": "Switch theme",
+  "Travel calculator": "Travel сalculator"
 }
