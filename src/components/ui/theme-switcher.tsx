@@ -9,6 +9,7 @@ export const ThemeSwitcher = component$(() => {
 
   return (
     <button
+      class="hover:text-skin-brand"
       onClick$={() => theme.toggle && theme.toggle(theme)}
       data-tooltip
       title={t("Switch theme")}

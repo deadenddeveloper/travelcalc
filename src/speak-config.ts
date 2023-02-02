@@ -1,6 +1,6 @@
 import { $ } from "@builder.io/qwik";
 import { isServer } from "@builder.io/qwik/build";
-import { LoadTranslationFn, SpeakConfig, TranslationFn } from "qwik-speak";
+import type { LoadTranslationFn, SpeakConfig, TranslationFn } from "qwik-speak";
 
 export const config: SpeakConfig = {
   defaultLocale: {
@@ -13,7 +13,7 @@ export const config: SpeakConfig = {
     { lang: "de-DE", currency: "EUR", timeZone: "Europe/Berlin" },
     { lang: "ru-RU", currency: "RUB", timeZone: "Europe/Minsk" },
   ],
-  assets: ["app"],
+  assets: ["app", "validation"],
 };
 
 export const loadTranslation$: LoadTranslationFn = $(

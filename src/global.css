@@ -6,15 +6,38 @@
 
 :root {
     --color-bg-base: 255 255 255;
+    --color-bg-brand: 176 143 38;
+    --color-bg-input: 255 255 255;
     --color-text-base: 0 0 0;
+    --color-text-brand: 176 143 38;
+    --color-ring-brand: 176 143 38;
+    --color-border-brand: 176 143 38;
 }
 
 .theme-dark {
     --color-bg-base: 0 0 0;
+    --color-bg-input: 10 10 10;
     --color-text-base: 255 255 255;
 }
 
 html, body {
     color: rgb(var(--color-text-base));
     background: rgb(var(--color-bg-base));
+}
+
+@layer base {
+    .form-block {
+        @apply space-y-2;
+    }
+    .label {
+        @apply block;
+    }
+    .input {
+        @apply w-full p-2 rounded shadow border-skin-brand bg-skin-input;
+        @apply focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-skin-brand;
+    }
+    .btn {
+        @apply inline-flex items-center p-2 space-x-2 whitespace-nowrap cursor-pointer shadow-xl;
+        @apply rounded bg-skin-brand bg-opacity-75 hover:bg-opacity-100;
+    }
 }

@@ -2,9 +2,16 @@
   "Contacts": "Contacts",
   "Currency converter for travelers": "Currency converter for travelers",
   "Hello": "Hello",
-  "Made for people by Roman Meyer": "Made for people by <a href='https://romanmeyer.dev/en' target='_blank' class='underline'>Roman Meyer</a>",
+  "Loading": "Loading",
+  "Made for people by Roman Meyer": "Made for people by <a href='https://romanmeyer.dev/en' target='_blank' class='underline text-skin-brand'>Roman Meyer</a>",
   "Main": "Main",
+  "Message": "Message",
+  "Send message": "Send message",
   "Settings": "Settings",
+  "Something went wrong": "Something went wrong",
   "Switch theme": "Switch theme",
-  "Travel calculator": "Travel сalculator"
+  "Travel calculator": "Travel сalculator",
+  "Your email": "Your email",
+  "Your message has been successfully sent": "Your message has been successfully sent",
+  "Your name": "Your name"
 }

@@ -14,16 +14,16 @@ export const NavBar = component$(() => {
 
   return (
     <nav>
-      <ul className="flex space-x-4">
+      <ul class="flex space-x-4">
         {menu.map((item) => (
           <li>
             <Link
               href={item.link}
-              class={`flex space-x-1 whitespace-nowrap ${
+              class={`flex items-center space-x-1 whitespace-nowrap hover:text-skin-brand ${
                 pathname.startsWith(item.link) ? "font-bold" : ""
               }`}
             >
-              <FaIcon icon={item.icon} class="h-6 w-6" />
+              <FaIcon icon={item.icon} class="h-4 w-4" />
               <span>{t(item.title)}</span>
             </Link>
           </li>

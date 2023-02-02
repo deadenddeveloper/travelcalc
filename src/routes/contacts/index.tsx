@@ -1,14 +1,13 @@
 import { component$ } from "@builder.io/qwik";
-import { $translate as t, Speak } from "qwik-speak";
 import type { DocumentHead } from "@builder.io/qwik-city";
+import { Form, Links } from "@/components/contacts";
 
 export default component$(() => {
   return (
-    <Speak assets={["app"]}>
-      <div class="container mx-auto">
-        <h1 class="text-4xl text-red-300">{t("Contacts")}</h1>
-      </div>
-    </Speak>
+    <div class="container mx-auto px-2 md:px-0 py-8 space-y-8">
+      <Form />
+      <Links />
+    </div>
   );
 });
 

@@ -1,0 +1,9 @@
+{
+  "string": {
+    "empty": "This field should be filled",
+    "min": "This field should contain at least {{min}} symbols"
+  },
+  "email": {
+    "invalid": "This field should be valid e-mail address"
+  }
+}

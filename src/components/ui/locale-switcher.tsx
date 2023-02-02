@@ -22,7 +22,7 @@ export const LocaleSwitcher = component$(() => {
       {ctx.config.supportedLocales.map((locale) => (
         <button
           onClick$={() => changeLocaleHandler(locale)}
-          class={`uppercase ${
+          class={`uppercase hover:text-skin-brand ${
             ctx.locale.lang === locale.lang ? "underline" : ""
           }`}
         >

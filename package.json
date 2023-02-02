@@ -49,6 +49,7 @@
     "wrangler": "latest"
   },
   "dependencies": {
+    "sweetalert2": "^11.7.1",
     "tippy.js": "^6.3.7"
   }
 }

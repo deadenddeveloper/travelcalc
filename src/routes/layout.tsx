@@ -2,10 +2,11 @@ import { component$, Slot } from "@builder.io/qwik";
 import { Footer, Header } from "@/components/markup";
 import { RequestHandler } from "@builder.io/qwik-city";
 import { config } from "@/speak-config";
+import { Speak } from "qwik-speak";
 
 export default component$(() => {
   return (
-    <>
+    <Speak assets={["app"]}>
       <main class="flex flex-col min-h-screen">
         <Header />
         <section class="flex flex-grow items-center">
@@ -13,7 +14,7 @@ export default component$(() => {
         </section>
         <Footer />
       </main>
-    </>
+    </Speak>
   );
 });
 

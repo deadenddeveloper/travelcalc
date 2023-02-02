@@ -1,0 +1,9 @@
+{
+  "string": {
+    "empty": "Dieses Feld muss ausgefüllt werden",
+    "min": "Dieses Feld muss mindestens {{min}} Zeichen lang sein"
+  },
+  "email": {
+    "invalid": "Dieses Feld muss eine gültige E-Mail Adresse sein"
+  }
+}
