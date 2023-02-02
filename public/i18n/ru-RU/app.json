@@ -14,12 +14,4 @@
   "Your email": "Ваш email",
   "Your message has been successfully sent": "Ваше сообщение успешно отправлено",
   "Your name": "Ваше имя",
-  "string": {
-    "empty": ""
-  },
-  "validation": {
-    "string": {
-      "empty": ""
-    }
-  }
 }
