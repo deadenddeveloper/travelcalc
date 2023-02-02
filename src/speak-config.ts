@@ -13,19 +13,21 @@ export const config: SpeakConfig = {
     { lang: "de-DE", currency: "EUR", timeZone: "Europe/Berlin" },
     { lang: "ru-RU", currency: "RUB", timeZone: "Europe/Minsk" },
   ],
-  assets: ["app", "validation"],
+  assets: ["app", "validation", "runtime"],
 };
 
 export const loadTranslation$: LoadTranslationFn = $(
   async (lang: string, asset: string, origin?: string) => {
-    let url = "";
-    // Absolute urls on server
-    if (isServer && origin) {
-      url = origin;
+    if (import.meta.env.DEV || asset === "validation" || asset === "runtime") {
+      let url = "";
+      // Absolute urls on server
+      if (isServer && origin) {
+        url = origin;
+      }
+      url += `/i18n/${lang}/${asset}.json`;
+      const data = await fetch(url);
+      return data.json();
     }
-    url += `/i18n/${lang}/${asset}.json`;
-    const data = await fetch(url);
-    return data.json();
   }
 );
 
