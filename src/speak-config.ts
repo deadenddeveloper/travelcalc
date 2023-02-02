@@ -18,16 +18,14 @@ export const config: SpeakConfig = {
 
 export const loadTranslation$: LoadTranslationFn = $(
   async (lang: string, asset: string, origin?: string) => {
-    if (import.meta.env.DEV) {
-      let url = "";
-      // Absolute urls on server
-      if (isServer && origin) {
-        url = origin;
-      }
-      url += `/i18n/${lang}/${asset}.json`;
-      const data = await fetch(url);
-      return data.json();
+    let url = "";
+    // Absolute urls on server
+    if (isServer && origin) {
+      url = origin;
     }
+    url += `/i18n/${lang}/${asset}.json`;
+    const data = await fetch(url);
+    return data.json();
   }
 );
 
