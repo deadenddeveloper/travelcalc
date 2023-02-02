@@ -8,7 +8,7 @@ export default component$(() => {
     <>
       <main class="flex flex-col min-h-screen">
         <Header />
-        <section class="flex-grow">
+        <section class="flex flex-grow items-center">
           <Slot />
         </section>
         <Footer />
