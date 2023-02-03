@@ -5,8 +5,12 @@ import { faCog, faContactBook } from "@fortawesome/free-solid-svg-icons";
 import { $translate as t } from "qwik-speak";
 
 export const menu = [
-  { icon: faCog, title: "Settings", link: "/settings" },
-  { icon: faContactBook, title: "Contacts", link: "/contacts" },
+  { icon: faCog, title: "pages.settings.title@@Settings", link: "/settings" },
+  {
+    icon: faContactBook,
+    title: "pages.contacts.title@@Contacts",
+    link: "/contacts",
+  },
 ];
 
 export const NavBar = component$(() => {

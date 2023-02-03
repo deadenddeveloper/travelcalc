@@ -1,5 +1,17 @@
 {
-  "Contacts": "Contacts",
-  "Settings": "Settings",
-  "Something went wrong": "Something went wrong"
+  "title": "Travel Calculator",
+  "pages": {
+    "main": {
+      "title": "Main page",
+      "description": "Currency converter for travelers"
+    },
+    "contacts": {
+      "title": "Contacts",
+      "description": "Currency converter for travelers"
+    },
+    "settings": {
+      "title": "Settings",
+      "description": "Currency converter for travelers"
+    }
+  }
 }

@@ -1,17 +1,16 @@
 {
-  "Contacts": "Kontakte",
-  "Currency converter for travelers": "Währungsrechner für Reisende",
-  "Hello": "Moin",
-  "Loading": "Laden",
-  "Made for people by Roman Meyer": "Gemacht für Menschen von <a href='https://romanmeyer.dev/de' target='_blank' class='underline text-skin-brand'>Roman Meyer</a>",
-  "Main": "Hauptseite",
-  "Message": "Nachricht",
-  "Send message": "Nachricht senden",
-  "Settings": "Einstellungen",
-  "Something went wrong": "Etwas ist schief gelaufen",
-  "Switch theme": "Theme wechseln",
-  "Travel calculator": "Reisekalkulator",
-  "Your email": "Ihr E-Mail",
-  "Your message has been successfully sent": "Ihre Nachricht wurde erfolgreich gesendet",
-  "Your name": "Ihr Name"
+  "app": {
+    "copyright": "Gemacht für Menschen von <a href='https://romanmeyer.dev/de' target='_blank' class='underline text-skin-brand'>Roman Meyer</a>",
+    "email": "Ihr E-Mail",
+    "feedback": {
+      "success": "Ihre Nachricht wurde erfolgreich gesendet"
+    },
+    "loading": "Laden",
+    "message": "Nachricht",
+    "name": "Ihr Name",
+    "network_error": "Etwas ist schief gelaufen",
+    "send_message": "Nachricht senden",
+    "settings": "Einstellungen",
+    "switch_theme": "Theme wechseln"
+  }
 }

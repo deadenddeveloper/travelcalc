@@ -18,7 +18,7 @@ export const Footer = component$(() => {
         </div>
         <div
           class="text-center text-sm md:text-base"
-          dangerouslySetInnerHTML={t("Made for people by Roman Meyer")}
+          dangerouslySetInnerHTML={t("app.copyright@@Made for people")}
         ></div>
         <ThemeSwitcher />
       </div>

@@ -1,17 +1,16 @@
 {
-  "Contacts": "Контакты",
-  "Currency converter for travelers": "Конвертер валют для путешественников",
-  "Hello": "Привет",
-  "Loading": "Загрузка",
-  "Made for people by Roman Meyer": "Сделано для людей <a href='https://romanmeyer.dev' target='_blank' class='underline text-skin-brand'>Романом Майером</a>",
-  "Main": "Главная",
-  "Message": "Сообщение",
-  "Send message": "Отправить сообщение",
-  "Settings": "Настройки",
-  "Something went wrong": "Что-то пошло не так",
-  "Switch theme": "Переключить тему",
-  "Travel calculator": "Калькулятор для поездок",
-  "Your email": "Ваш email",
-  "Your message has been successfully sent": "Ваше сообщение успешно отправлено",
-  "Your name": "Ваше имя"
+  "app": {
+    "copyright": "Сделано для людей <a href='https://romanmeyer.dev' target='_blank' class='underline text-skin-brand'>Романом Майером</a>",
+    "email": "Ваш email",
+    "feedback": {
+      "success": "Ваше сообщение было успешно отправлено"
+    },
+    "loading": "Загрузка",
+    "message": "Сообщение",
+    "name": "Ваше имя",
+    "network_error": "Что-то пошло не так",
+    "send_message": "Отправить сообщение",
+    "settings": "Настройки",
+    "switch_theme": "Переключить тему"
+  }
 }

@@ -1,5 +1,17 @@
 {
-  "Contacts": "Kontakte",
-  "Settings": "Einstellungen",
-  "Something went wrong": "Etwas ist schief gelaufen"
+  "title": "Reisenkalkulator",
+  "pages": {
+    "main": {
+      "title": "Hauptseite",
+      "description": "Währungsrechner für Reisende"
+    },
+    "contacts": {
+      "title": "Kontakte",
+      "description": "Währungsrechner für Reisende"
+    },
+    "settings": {
+      "title": "Einstellungen",
+      "description": "Währungsrechner für Reisende"
+    }
+  }
 }

@@ -20,18 +20,20 @@ export const Form = component$(() => {
   });
   const errors = useStore<{ bag: IErrorBag }>({ bag: {} });
 
-  const errMsg = t("Something went wrong");
-  const scsMsg = t("Your message has been successfully sent");
+  const errMsg = t("app.network_error@@Something went wrong");
+  const scsMsg = t(
+    "app.feedback.success@@Your message has been successfully sent"
+  );
 
   const submitButton = loading.value ? (
     <button class="btn" disabled>
       <FaIcon icon={faSpinner} class="h-4 w-4 animate-spin" />
-      <span>{t("Loading")}...</span>
+      <span>{t("app.loading@@Loading")}...</span>
     </button>
   ) : (
     <button class="btn">
       <FaIcon icon={faPaperPlane} class="h-4 w-4" />
-      <span>{t("Send message")}</span>
+      <span>{t("app.send_message@@Send message")}</span>
     </button>
   );
 
@@ -76,7 +78,7 @@ export const Form = component$(() => {
     >
       <div class="form-block">
         <label class="label" for="name">
-          {t("Your name")}
+          {t("app.name@@Your name")}
         </label>
         <input
           class="input"
@@ -91,7 +93,7 @@ export const Form = component$(() => {
 
       <div class="form-block">
         <label class="label" for="email">
-          {t("Your email")}
+          {t("app.email@@Your email")}
         </label>
         <input
           class="input"
@@ -106,7 +108,7 @@ export const Form = component$(() => {
 
       <div class="form-block">
         <label class="label" for="message">
-          {t("Message")}
+          {t("app.message@@Message")}
         </label>
         <textarea
           class="input h-24"

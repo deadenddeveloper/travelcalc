@@ -11,11 +11,11 @@ export default component$(() => {
 });
 
 export const head: DocumentHead = {
-  title: "Main",
+  title: "pages.main.title@@Main",
   meta: [
     {
       name: "description",
-      content: "Currency converter for travelers",
+      content: "pages.main.description@@Currency converter for travelers",
     },
   ],
 };

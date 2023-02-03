@@ -12,7 +12,7 @@ export const ThemeSwitcher = component$(() => {
       class="hover:text-skin-brand"
       onClick$={() => theme.toggle && theme.toggle(theme)}
       data-tooltip
-      title={t("Switch theme")}
+      title={t("app.switch_theme@@Switch theme")}
     >
       <FaIcon
         icon={"dark" === theme.current ? faLightbulb : faMoon}

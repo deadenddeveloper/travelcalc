@@ -11,7 +11,7 @@ export const RouterHead = component$(() => {
 
   return (
     <>
-      <title>{`${t(head.title)} - ${t("Travel calculator")}`}</title>
+      <title>{`${t(head.title)} - ${t("title@@Travel calculator")}`}</title>
 
       <link rel="canonical" href={loc.href} />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
