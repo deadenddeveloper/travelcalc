@@ -1,4 +1,18 @@
-export const currencies = {
+export interface ICurrency {
+  symbol: string;
+  name: string;
+  symbol_native: string;
+  decimal_digits: number;
+  rounding: number;
+  code: string;
+  name_plural: string;
+}
+
+interface ICurrencies {
+  [key: string]: ICurrency;
+}
+
+export const currencies = <ICurrencies>{
   USD: {
     symbol: "$",
     name: "US Dollar",
@@ -1070,4 +1084,8 @@ export const currencies = {
     code: "ZWL",
     name_plural: "Zimbabwean Dollar",
   },
+};
+
+export const getCurrency = (code: keyof ICurrencies) => {
+  return currencies[code];
 };

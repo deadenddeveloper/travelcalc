@@ -16,9 +16,16 @@ export const saveSettings = (settings: ISettings) => {
 };
 
 export const getSettings = () => {
-  const settings = localStorage.getItem(OPTIONS_KEY);
+  const stored = localStorage.getItem(OPTIONS_KEY);
 
   // TODO validate / sanitize
 
-  return JSON.parse(settings as string);
+  return JSON.parse(stored as string);
+};
+
+export const convert = (value: number, from: string, to: string) => {
+  return value * 3;
+  // TODO get currencies
+  // TODO calculate
+  // TODO round and return
 };

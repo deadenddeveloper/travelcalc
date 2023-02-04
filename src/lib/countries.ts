@@ -1,3 +1,5 @@
+import { getCurrency } from "@/lib/currencies";
+
 export const countries = [
   {
     code: "AD",
@@ -1250,3 +1252,15 @@ export const countries = [
     currency: "ZWL",
   },
 ];
+
+export const getCountry = (code: string) => {
+  return countries.find((c) => c.code === code);
+};
+
+export const getCurrencyByCountry = (countryCode: string) => {
+  const country = getCountry(countryCode);
+
+  if (country) {
+    return getCurrency(country.currency);
+  }
+};
