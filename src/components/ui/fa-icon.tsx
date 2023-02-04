@@ -8,6 +8,7 @@ import {
 interface IFaIconProps {
   icon: IconDefinition;
   class?: string;
+  tooltip?: string;
 }
 
 export const FaIcon = component$((props: IFaIconProps) => {
@@ -20,5 +21,11 @@ export const FaIcon = component$((props: IFaIconProps) => {
     { classes: props.class }
   );
 
-  return <i dangerouslySetInnerHTML={`${html}`}></i>;
+  return (
+    <i
+      title={props.tooltip}
+      data-tooltip={!!props.tooltip}
+      dangerouslySetInnerHTML={`${html}`}
+    ></i>
+  );
 });

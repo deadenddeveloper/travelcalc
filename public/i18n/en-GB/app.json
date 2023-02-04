@@ -2,9 +2,12 @@
   "app": {
     "copyright": "Made for people by <a href='https://romanmeyer.dev/en' target='_blank' class='underline text-skin-brand'>Roman Meyer</a>",
     "email": "Your email",
+    "go_to_settings": "Go to settings",
     "feedback": {
       "success": "Your message has been successfully sent"
     },
+    "hello": "Hello",
+    "intro": "This app will help you get actual prices when you are abroad. But first you need to go to the settings and select your currency and the one from which you want to convert",
     "loading": "Loading",
     "message": "Message",
     "name": "Your name",

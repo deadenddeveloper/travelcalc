@@ -39,5 +39,6 @@ html, body {
     .btn {
         @apply inline-flex items-center p-2 space-x-2 whitespace-nowrap cursor-pointer shadow-xl;
         @apply rounded bg-skin-brand bg-opacity-75 hover:bg-opacity-100;
+        @apply disabled:opacity-50 disabled:hover:bg-opacity-75 disabled:cursor-not-allowed;
     }
 }

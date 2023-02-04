@@ -2,9 +2,12 @@
   "app": {
     "copyright": "Gemacht für Menschen von <a href='https://romanmeyer.dev/de' target='_blank' class='underline text-skin-brand'>Roman Meyer</a>",
     "email": "Ihr E-Mail",
+    "go_to_settings": "Zu den Einstellungen",
     "feedback": {
       "success": "Ihre Nachricht wurde erfolgreich gesendet"
     },
+    "intro": "Diese App hilft Ihnen bei der Preiskalkulierung im Ausland. Aber zuerst müssen Sie in den Einstellungen Ihre Währung und diejenige, aus der Sie umrechnen möchten, auswählen.",
+    "hello": "Hallo",
     "loading": "Laden",
     "message": "Nachricht",
     "name": "Ihr Name",
