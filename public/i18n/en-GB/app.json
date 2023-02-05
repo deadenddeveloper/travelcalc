@@ -1,5 +1,6 @@
 {
   "app": {
+    "amount_in": "Amount in",
     "copyright": "Made for people by <a href='https://romanmeyer.dev/en' target='_blank' class='underline text-skin-brand'>Roman Meyer</a>",
     "email": "Your email",
     "go_to_settings": "Go to settings",
@@ -10,10 +11,17 @@
     "intro": "This app will help you get actual prices when you are abroad. But first you need to go to the settings and select your currency and the one from which you want to convert",
     "loading": "Loading",
     "message": "Message",
+    "my_country": "My country",
+    "my_country_notice": "Select from the list the country whose currency you use",
     "name": "Your name",
     "network_error": "Something went wrong",
+    "save": "Save",
+    "select_country": "Select country",
     "send_message": "Send message",
     "settings": "Settings",
-    "switch_theme": "Switch theme"
+    "settings_saved": "Settings have been successfully saved",
+    "switch_theme": "Switch theme",
+    "where_am_i": "Where I am",
+    "where_am_i_notice": "Choose from the list the country where you are now"
   }
 }

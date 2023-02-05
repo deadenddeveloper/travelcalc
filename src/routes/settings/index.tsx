@@ -8,6 +8,7 @@ import { FaIcon, Notice } from "@/components/ui";
 import { faSave } from "@fortawesome/free-solid-svg-icons";
 import { getSettings, saveSettings } from "@/lib/calc";
 import { success } from "@/lib/toast";
+import { useTooltips } from "@/lib/tooltip";
 
 export default component$(() => {
   const settings = useStore<ISettings>({
@@ -21,6 +22,8 @@ export default component$(() => {
     settings.myCountry = myCountry;
     settings.whereAmI = whereAmI;
   });
+
+  useTooltips();
 
   const scsMsg = t("app.settings_saved@@Settings saved");
 

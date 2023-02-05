@@ -47,7 +47,7 @@ export const Calculator = component$(() => {
     <div class="mx-auto md:w-1/2 space-y-8">
       <div class="form-block">
         <label for="value">
-          {t("app.amount_in@@Amount in ")} {state.foreignCurrency?.code}
+          {t("app.amount_in@@Amount in")} {state.foreignCurrency?.code}
         </label>
         <input
           id="value"

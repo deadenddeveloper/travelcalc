@@ -1,5 +1,6 @@
 {
   "app": {
+    "amount_in": "Summe in",
     "copyright": "Gemacht für Menschen von <a href='https://romanmeyer.dev/de' target='_blank' class='underline text-skin-brand'>Roman Meyer</a>",
     "email": "Ihr E-Mail",
     "go_to_settings": "Zu den Einstellungen",
@@ -10,10 +11,17 @@
     "hello": "Hallo",
     "loading": "Laden",
     "message": "Nachricht",
+    "my_country": "Mein Land",
+    "my_country_notice": "Wählen Sie das Land, dessen Währung Sie verwenden, aus der Liste aus.",
     "name": "Ihr Name",
     "network_error": "Etwas ist schief gelaufen",
+    "save": "Speichern",
+    "select_country": "Land auswählen",
     "send_message": "Nachricht senden",
     "settings": "Einstellungen",
-    "switch_theme": "Theme wechseln"
+    "settings_saved": "Einstellungen wurden erfolgreich gespeichert",
+    "switch_theme": "Theme wechseln",
+    "where_am_i": "Wo ich bin",
+    "where_am_i_notice": "Wählen Sie aus der Liste das Land aus, in dem Sie sich gerade befinden"
   }
 }

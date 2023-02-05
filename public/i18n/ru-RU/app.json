@@ -1,5 +1,6 @@
 {
   "app": {
+    "amount_in": "Сумма в",
     "copyright": "Сделано для людей <a href='https://romanmeyer.dev' target='_blank' class='underline text-skin-brand'>Романом Майером</a>",
     "email": "Ваш email",
     "feedback": {
@@ -10,10 +11,17 @@
     "hello": "Привет",
     "loading": "Загрузка",
     "message": "Сообщение",
+    "my_country": "Моя страна",
+    "my_country_notice": "Выберите из списка страну, валюту которой вы используете",
     "name": "Ваше имя",
     "network_error": "Что-то пошло не так",
+    "save": "Сохранить",
+    "select_country": "Выберите страну",
     "send_message": "Отправить сообщение",
     "settings": "Настройки",
-    "switch_theme": "Переключить тему"
+    "settings_saved": "Настройки были успешно сохранены",
+    "switch_theme": "Переключить тему",
+    "where_am_i": "Где я нахожусь",
+    "where_am_i_notice": "Выберите из списка страну, в которой вы находитесь сейчас"
   }
 }
