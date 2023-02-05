@@ -179,7 +179,7 @@ export const countries = [
   {
     code: "BY",
     name: "Belarus",
-    currency: "BYR",
+    currency: "BYN",
   },
   {
     code: "BZ",

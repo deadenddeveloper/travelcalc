@@ -3,6 +3,7 @@ import {
   component$,
   useClientEffect$,
   useResource$,
+  useSignal,
   useStore,
 } from "@builder.io/qwik";
 import { $translate as t } from "qwik-speak";
@@ -18,19 +19,24 @@ export const Calculator = component$(() => {
     foreignCurrency: {} as ICurrency | undefined,
   });
 
+  const inputRef = useSignal<HTMLInputElement>();
+
   useClientEffect$(() => {
     const settings = getSettings();
     state.myCurrency = getCurrencyByCountry(settings.myCountry);
     state.foreignCurrency = getCurrencyByCountry(settings.whereAmI);
+
+    inputRef.value?.focus();
   });
 
-  useResource$(({ track }) => {
+  useResource$(async ({ track }) => {
     track(() => state.amount);
-    state.calculated = convert(
-      state.amount,
-      state.foreignCurrency?.code as string,
-      state.myCurrency?.code as string
-    );
+    state.calculated =
+      (await convert(
+        state.amount,
+        state.foreignCurrency?.code as string,
+        state.myCurrency?.code as string
+      )) || 0;
   });
 
   const handleChange = $((event: InputEvent) => {
@@ -45,15 +51,16 @@ export const Calculator = component$(() => {
         </label>
         <input
           id="value"
-          className="input"
+          class="input"
           type="number"
+          ref={inputRef}
           value={state.amount}
           onInput$={handleChange}
         />
       </div>
       <div class="form-block text-center text-4xl space-x-2">
         <span>=</span>
-        <span>{state.calculated}</span>
+        <span>{state.calculated.toFixed(2)}</span>
         <span>{state.myCurrency?.code}</span>
       </div>
     </div>
