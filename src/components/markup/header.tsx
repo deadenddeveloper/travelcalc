@@ -1,5 +1,5 @@
 import { component$ } from "@builder.io/qwik";
-import { FaIcon, LocaleSwitcher } from "~/components/ui";
+import { FaIcon, LocaleSwitcher } from "@/components/ui";
 import { faCalculator } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "@builder.io/qwik-city";
 import { NavBar } from "@/components/markup";

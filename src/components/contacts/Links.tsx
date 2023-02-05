@@ -1,5 +1,5 @@
 import { component$ } from "@builder.io/qwik";
-import { FaIcon } from "~/components/ui";
+import { FaIcon } from "@/components/ui";
 import {
   faFacebookF,
   faGithub,
