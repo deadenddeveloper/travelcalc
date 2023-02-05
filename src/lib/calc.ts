@@ -6,10 +6,13 @@ export interface ISettings {
   whereAmI: string;
 }
 
+const defaultSettings = <ISettings>{
+  myCountry: "",
+  whereAmI: "",
+};
+
 export const isAppReady = () => {
   return null !== localStorage.getItem(OPTIONS_KEY);
-  // TODO check options
-  // TODO invalidate if errors
 };
 
 export const saveSettings = (settings: ISettings) => {
@@ -19,7 +22,12 @@ export const saveSettings = (settings: ISettings) => {
 export const getSettings = () => {
   const stored = localStorage.getItem(OPTIONS_KEY);
 
-  // TODO validate / sanitize
+  if (null === stored) {
+    return defaultSettings;
+  }
+
+  // TODO check options
+  // TODO invalidate if errors
 
   return JSON.parse(stored as string);
 };
