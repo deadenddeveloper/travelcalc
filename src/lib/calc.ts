@@ -26,14 +26,12 @@ export const saveSettings = (settings: ISettings) => {
 export const getSettings = () => {
   const stored = localStorage.getItem(OPTIONS_KEY);
 
-  if (null === stored) {
+  try {
+    const settings = JSON.parse(stored as string);
+    return { ...defaultSettings, ...settings };
+  } catch (e) {
     return defaultSettings;
   }
-
-  // TODO check options
-  // TODO invalidate if errors
-
-  return JSON.parse(stored as string);
 };
 
 // TODO only server
