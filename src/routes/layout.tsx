@@ -19,13 +19,13 @@ export default component$(() => {
   );
 });
 
-export const onRequest: RequestHandler = ({ request, response }) => {
-  const acceptLanguage = request.headers?.get("accept-language");
+export const onRequest: RequestHandler = ({ headers, locale }) => {
+  const acceptLanguage = headers?.get("accept-language");
 
   let lang: string | null = null;
   if (acceptLanguage) {
     lang = acceptLanguage.split(";")[0]?.split(",")[0];
   }
 
-  response.locale = lang || config.defaultLocale.lang;
+  locale(lang || config.defaultLocale.lang);
 };

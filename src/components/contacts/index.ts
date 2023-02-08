@@ -1,2 +1,2 @@
-export { Form } from "./Form";
+export { ContactForm } from "./ContactForm";
 export { Links } from "./Links";
