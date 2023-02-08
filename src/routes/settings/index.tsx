@@ -6,32 +6,36 @@ import { $translate as t } from "qwik-speak";
 import { CountrySelect } from "@/components/calc";
 import { FaIcon, Notice } from "@/components/ui";
 import { faSave } from "@fortawesome/free-solid-svg-icons";
-import { getSettings, saveSettings } from "@/lib/calc";
+import { defaultSettings, getSettings, saveSettings } from "@/lib/calc";
 import { success } from "@/lib/toast";
 import { useTooltips } from "@/lib/tooltip";
 
 export default component$(() => {
-  const settings = useStore<ISettings>({
-    myCountry: "",
-    whereAmI: "",
-  });
+  const settings = useStore<ISettings>(defaultSettings);
 
   useClientEffect$(() => {
-    const { myCountry, whereAmI } = getSettings();
+    const { myCountry, whereAmI, calcHours, hourRate } = getSettings();
 
     settings.myCountry = myCountry;
     settings.whereAmI = whereAmI;
+    settings.calcHours = calcHours;
+    settings.hourRate = hourRate;
   });
 
   useTooltips();
 
   const scsMsg = t("app.settings_saved@@Settings saved");
 
-  const canSave = settings.myCountry && settings.whereAmI;
+  const canSave =
+    settings.myCountry &&
+    settings.whereAmI &&
+    (!settings.calcHours || (settings.calcHours && settings.hourRate > 0));
 
-  const saveHandler = $(() => {
-    saveSettings(settings);
-    success(scsMsg);
+  const saveHandler = $((event: MouseEvent) => {
+    if (!(event.target as Element)?.closest("button")?.disabled) {
+      saveSettings(settings);
+      success(scsMsg);
+    }
   });
 
   return (
@@ -48,6 +52,7 @@ export default component$(() => {
             onChange$={(value) => (settings.myCountry = value)}
           />
         </div>
+
         <div class="form-block">
           <label class="label flex space-x-2" for="whereAmI">
             <span>{t("app.where_am_i@@Where am I")}</span>
@@ -59,6 +64,37 @@ export default component$(() => {
             onChange$={(value) => (settings.whereAmI = value)}
           />
         </div>
+
+        <div class="form-block">
+          <label class="label flex items-center space-x-2" for="calcHours">
+            <input
+              id="calcHours"
+              type="checkbox"
+              checked={settings.calcHours}
+              onChange$={() => (settings.calcHours = !settings.calcHours)}
+            />
+            <span>{t("app.calc_hours@@Show hours of work")}</span>
+            <Notice notice={t("app.calc_hours_notice")} />
+          </label>
+        </div>
+
+        <div>
+          <label class="label flex space-x-2" for="hourRate">
+            <span>{t("app.hour_rate@@Hour rate")}</span>
+            <Notice notice={t("app.hour_rate_notice")} />
+          </label>
+          <input
+            id="hourRate"
+            class="input"
+            type="number"
+            disabled={!settings.calcHours}
+            value={settings.hourRate}
+            onInput$={(event) =>
+              (settings.hourRate = +(event.target as HTMLInputElement).value)
+            }
+          />
+        </div>
+
         <div class="text-center">
           <button class="btn" disabled={!canSave} onclick$={saveHandler}>
             <FaIcon icon={faSave} class="h-4 w-4" />

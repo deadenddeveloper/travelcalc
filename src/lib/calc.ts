@@ -4,11 +4,15 @@ const RATES_KEY = "tc_rates";
 export interface ISettings {
   myCountry: string;
   whereAmI: string;
+  calcHours: boolean;
+  hourRate: number;
 }
 
-const defaultSettings = <ISettings>{
+export const defaultSettings = <ISettings>{
   myCountry: "",
   whereAmI: "",
+  calcHours: false,
+  hourRate: 0,
 };
 
 export const isAppReady = () => {
