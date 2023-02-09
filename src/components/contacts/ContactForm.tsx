@@ -1,10 +1,11 @@
 import { component$ } from "@builder.io/qwik";
 import { $translate as t } from "qwik-speak";
-import { FaIcon } from "@/components/ui";
+import { FaIcon, FormError } from "@/components/ui";
 import { faPaperPlane, faSpinner } from "@fortawesome/free-solid-svg-icons";
 //import { success, failure } from "@/lib/toast";
-import { action$, Form, z, zod$ } from "@builder.io/qwik-city";
-import { send } from "~/lib/feedback";
+import { action$, Form, zod$ } from "@builder.io/qwik-city";
+import { send } from "@/lib/feedback";
+import { feedbackSchema } from "@/lib/validation";
 
 interface IFormData {
   name: string;
@@ -12,16 +13,9 @@ interface IFormData {
   message: string;
 }
 
-export const sendFeedback = action$(
-  (data: IFormData) => {
-    return send(data.name, data.email, data.message);
-  },
-  zod$({
-    name: z.string(),
-    email: z.string().email(),
-    message: z.string().trim().min(10),
-  })
-);
+export const sendFeedback = action$((data: IFormData) => {
+  return send(data.name, data.email, data.message);
+}, zod$(feedbackSchema));
 
 export const ContactForm = component$(() => {
   const action = sendFeedback.use();
@@ -49,26 +43,17 @@ export const ContactForm = component$(() => {
         <label class="label" for="name">
           {t("app.name@@Your name")}
         </label>
-        <input
-          class="input"
-          type="text"
-          id="name"
-          name="name"
-          value={action.formData?.get("name")}
-        />
+        <input class="input" type="text" id="name" name="name" />
       </div>
 
       <div class="form-block">
         <label class="label" for="email">
           {t("app.email@@Your email")}
         </label>
-        <input
-          class="input"
-          type="text"
-          id="email"
-          name="email"
-          value={action.formData?.get("email")}
-        />
+        <input class="input" type="text" id="email" name="email" />
+        {action.value?.fieldErrors?.email && (
+          <FormError error={{ msg: action.value.fieldErrors.email[0] }} />
+        )}
       </div>
 
       <div class="form-block">
@@ -76,6 +61,14 @@ export const ContactForm = component$(() => {
           {t("app.message@@Message")}
         </label>
         <textarea class="input h-24" name="message" id="message"></textarea>
+        {action.value?.fieldErrors?.message && (
+          <FormError
+            error={{
+              msg: action.value.fieldErrors.message[0],
+              params: { min: 10 },
+            }}
+          />
+        )}
       </div>
 
       <div class="text-center">{submitButton}</div>

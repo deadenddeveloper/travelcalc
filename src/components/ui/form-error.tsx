@@ -1,9 +1,11 @@
 import { component$ } from "@builder.io/qwik";
 import { $translate as t, Speak } from "qwik-speak";
-import type { IError } from "@/types/error";
 
 interface IFormErrorProps {
-  error: IError;
+  error: {
+    msg: string;
+    params?: object;
+  };
 }
 
 export const FormError = component$((props: IFormErrorProps) => {
