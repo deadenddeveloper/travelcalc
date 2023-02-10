@@ -34,21 +34,10 @@ export const getSettings = () => {
   }
 };
 
-// TODO only server
-const loadRates = async (date = "") => {
-  if (!date) {
-    date = new Date().toISOString().split("T")[0];
-  }
-
-  const apiLayerKey = import.meta.env["VITE_API_LAYER_KEY"];
-  const apiLayerUrl = import.meta.env["VITE_API_LAYER_URL"];
-  const response = await fetch(`${apiLayerUrl}${date}?symbols=&base=EUR`, {
-    headers: {
-      "Content-Type": "text/json",
-      apikey: apiLayerKey,
-    },
-  });
+const loadRates = async () => {
+  const response = await fetch("/api/rates");
   const rates = await response.json();
+
   localStorage.setItem(RATES_KEY, JSON.stringify(rates));
 
   return rates;
@@ -64,8 +53,8 @@ const getRates = async () => {
   const today = new Date().toISOString().split("T")[0];
   const rates = JSON.parse(stored);
 
-  if (rates.date && today === rates.date) {
-    return rates; // TODO validate rates object
+  if (rates.date && today === rates.date && rates.rates) {
+    return rates;
   }
 
   return await loadRates();

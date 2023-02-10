@@ -10,6 +10,7 @@ import { $translate as t } from "qwik-speak";
 import { convert, getSettings } from "@/lib/calc";
 import { getCurrencyByCountry } from "@/lib/countries";
 import { ICurrency } from "@/lib/currencies";
+import { Loader } from "~/components/ui";
 
 export const Calculator = component$(() => {
   const state = useStore({
@@ -29,7 +30,7 @@ export const Calculator = component$(() => {
     inputRef.value?.focus();
   });
 
-  useResource$(async ({ track }) => {
+  const resource = useResource$(async ({ track }) => {
     track(() => state.amount);
     state.calculated =
       (await convert(
@@ -58,11 +59,17 @@ export const Calculator = component$(() => {
           onInput$={handleChange}
         />
       </div>
-      <div class="form-block text-center text-4xl space-x-2">
-        <span>=</span>
-        <span>{state.calculated.toFixed(2)}</span>
-        <span>{state.myCurrency?.code}</span>
-      </div>
+      {resource.loading ? (
+        <div class="text-center">
+          <Loader />
+        </div>
+      ) : (
+        <div class="form-block text-center text-4xl space-x-2">
+          <span>=</span>
+          <span>{state.calculated.toFixed(2)}</span>
+          <span>{state.myCurrency?.code}</span>
+        </div>
+      )}
     </div>
   );
 });
