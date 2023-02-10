@@ -3,13 +3,13 @@ import { $translate as t, Speak } from "qwik-speak";
 
 interface IFormErrorProps {
   error: {
-    msg: string;
+    code: string;
     params?: object;
   };
 }
 
 export const FormError = component$((props: IFormErrorProps) => {
-  const text = t(props.error.msg, props.error.params);
+  const text = t(props.error.code, props.error.params);
 
   return (
     <Speak assets={["validation"]}>
