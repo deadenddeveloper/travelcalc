@@ -3,12 +3,12 @@ import type { ISettings } from "@/lib/calc";
 
 import { $, component$, useClientEffect$, useStore } from "@builder.io/qwik";
 import { $translate as t } from "qwik-speak";
-import { CountrySelect } from "@/components/calc";
 import { FaIcon, Notice } from "@/components/ui";
 import { faSave } from "@fortawesome/free-solid-svg-icons";
 import { defaultSettings, getSettings, saveSettings } from "@/lib/calc";
 import { success } from "@/lib/toast";
 import { useTooltips } from "@/lib/tooltip";
+import { CountrySelect } from "@/integrations/react/headless";
 
 export default component$(() => {
   const settings = useStore<ISettings>(defaultSettings);
@@ -46,10 +46,13 @@ export default component$(() => {
             <span>{t("app.my_country@@My country")}</span>
             <Notice notice={t("app.my_country_notice")} />
           </label>
+
           <CountrySelect
             id="myCountry"
             value={settings.myCountry}
-            onChange$={(value) => (settings.myCountry = value)}
+            placeholder={t("app.select_country@@Select country")}
+            nothing={t("app.nothing_found@@Nothing found")}
+            onChange$={(value: string) => (settings.myCountry = value)}
           />
         </div>
 
@@ -58,9 +61,12 @@ export default component$(() => {
             <span>{t("app.where_am_i@@Where am I")}</span>
             <Notice notice={t("app.where_am_i_notice")} />
           </label>
+
           <CountrySelect
             id="whereAmI"
             value={settings.whereAmI}
+            placeholder={t("app.select_country@@Select country")}
+            nothing={t("app.nothing_found@@Nothing found")}
             onChange$={(value) => (settings.whereAmI = value)}
           />
         </div>

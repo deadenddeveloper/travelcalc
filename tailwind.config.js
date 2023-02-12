@@ -10,6 +10,7 @@ module.exports = {
       },
       backgroundColor: {
         skin: {
+          base: "rgb(var(--color-bg-base) / <alpha-value>)",
           brand: "rgb(var(--color-bg-brand) / <alpha-value>)",
           input: "rgb(var(--color-bg-input) / <alpha-value>)",
         },

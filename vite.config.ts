@@ -3,6 +3,7 @@ import { qwikVite } from "@builder.io/qwik/optimizer";
 import { qwikCity } from "@builder.io/qwik-city/vite";
 import tsconfigPaths from "vite-tsconfig-paths";
 import { qwikSpeakInline } from "qwik-speak/inline";
+import { qwikReact } from "@builder.io/qwik-react/vite";
 
 export default defineConfig(() => {
   return {
@@ -14,6 +15,7 @@ export default defineConfig(() => {
         defaultLang: "en-GB",
       }),
       tsconfigPaths(),
+      qwikReact(),
     ],
     preview: {
       headers: {

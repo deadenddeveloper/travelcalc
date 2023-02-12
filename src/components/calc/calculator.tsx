@@ -55,8 +55,10 @@ export const Calculator = component$(() => {
   const calculated = (
     <div className="form-block text-center text-4xl space-x-2">
       <span>=</span>
-      <span>{state.calculated.toFixed(2)}</span>
-      <span>{state.myCurrency?.code}</span>
+      <span>
+        {state.calculated.toFixed(state.myCurrency?.decimal_digits || 2)}
+      </span>
+      <span>{state.myCurrency?.symbol || state.myCurrency?.code}</span>
     </div>
   );
 

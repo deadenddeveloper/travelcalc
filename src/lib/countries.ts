@@ -1,5 +1,11 @@
 import { getCurrency } from "@/lib/currencies";
 
+export interface ICountry {
+  code: string;
+  name: string;
+  currency: string;
+}
+
 export const countries = [
   {
     code: "AD",
@@ -40,11 +46,6 @@ export const countries = [
     code: "AO",
     name: "Angola",
     currency: "AOA",
-  },
-  {
-    code: "AQ",
-    name: "Antarctica",
-    currency: "",
   },
   {
     code: "AR",
