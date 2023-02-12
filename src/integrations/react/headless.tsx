@@ -5,7 +5,6 @@ import type { ICountry } from "@/lib/countries";
 import { qwikify$ } from "@builder.io/qwik-react";
 import { Combobox, Transition } from "@headlessui/react";
 import { Fragment, useEffect, useState } from "react";
-import { countries } from "@/lib/countries";
 
 interface ICountrySelectProps {
   id: string;
