@@ -1,27 +1,47 @@
 {
   "app": {
     "amount_in": "Amount in",
+    "calc_hours": "Show hours of work",
+    "calc_hours_notice": "Show the calculation of working hours on the home page",
     "copyright": "Made for people by <a href='https://romanmeyer.dev/en' target='_blank' class='underline text-skin-brand'>Roman Meyer</a>",
+    "days": {
+      "one": "day",
+      "other": "days"
+    },
     "email": "Your email",
     "go_to_settings": "Go to settings",
     "feedback": {
       "success": "Your message has been successfully sent"
     },
     "hello": "Hello",
+    "hour_rate": "Hour rate",
+    "hour_rate_notice": "Enter your hourly rate in your currency",
+    "hours": {
+      "one": "hour",
+      "other": "hours"
+    },
     "intro": "This app will help you get actual prices when you are abroad. But first you need to go to the settings and select your currency and the one from which you want to convert",
+    "less_than_minute": "less than minute",
     "loading": "Loading",
+    "minutes": {
+      "one": "minute",
+      "other": "minutes"
+    },
     "message": "Message",
     "my_country": "My country",
     "my_country_notice": "Select from the list the country whose currency you use",
     "name": "Your name",
     "network_error": "Something went wrong",
+    "or": "Or",
     "save": "Save",
     "select_country": "Select country",
     "send_message": "Send message",
     "settings": "Settings",
     "settings_saved": "Settings have been successfully saved",
+    "start_type": "Enter the amount to calculate",
     "switch_theme": "Switch theme",
     "where_am_i": "Where I am",
-    "where_am_i_notice": "Choose from the list the country where you are now"
+    "where_am_i_notice": "Choose from the list the country where you are now",
+    "work_hours": "For this purchase you need to work"
   }
 }

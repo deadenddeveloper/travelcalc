@@ -1,7 +1,13 @@
 {
   "app": {
     "amount_in": "Summe in",
+    "calc_hours": "Arbeitsstunden anzeigen",
+    "calc_hours_notice": "Anzeige der Berechnung der Arbeitszeiten auf der Hauptseite",
     "copyright": "Gemacht für Menschen von <a href='https://romanmeyer.dev/de' target='_blank' class='underline text-skin-brand'>Roman Meyer</a>",
+    "days": {
+      "one": "Tag",
+      "other": "Tage"
+    },
     "email": "Ihr E-Mail",
     "go_to_settings": "Zu den Einstellungen",
     "feedback": {
@@ -9,19 +15,33 @@
     },
     "intro": "Diese App hilft Ihnen bei der Preiskalkulierung im Ausland. Aber zuerst müssen Sie in den Einstellungen Ihre Währung und diejenige, aus der Sie umrechnen möchten, auswählen.",
     "hello": "Hallo",
+    "hour_rate": "Stundenlohn",
+    "hour_rate_notice": "Geben Sie Ihren Stundenlohn in Ihrer Währung ein",
+    "hours": {
+      "one": "Stunde",
+      "other": "Stunden"
+    },
+    "less_than_minute": "weniger als eine Minute",
     "loading": "Laden",
+    "minutes": {
+      "one": "Minute",
+      "other": "Minuten"
+    },
     "message": "Nachricht",
     "my_country": "Mein Land",
     "my_country_notice": "Wählen Sie das Land, dessen Währung Sie verwenden, aus der Liste aus.",
     "name": "Ihr Name",
     "network_error": "Etwas ist schief gelaufen",
+    "or": "Oder",
     "save": "Speichern",
     "select_country": "Land auswählen",
     "send_message": "Nachricht senden",
     "settings": "Einstellungen",
     "settings_saved": "Einstellungen wurden erfolgreich gespeichert",
+    "start_type": "Geben Sie die Summe ein",
     "switch_theme": "Theme wechseln",
     "where_am_i": "Wo ich bin",
-    "where_am_i_notice": "Wählen Sie aus der Liste das Land aus, in dem Sie sich gerade befinden"
+    "where_am_i_notice": "Wählen Sie aus der Liste das Land aus, in dem Sie sich gerade befinden",
+    "work_hours": "Für diesen Kauf müssen Sie arbeiten"
   }
 }

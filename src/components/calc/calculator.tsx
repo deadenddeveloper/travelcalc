@@ -12,6 +12,7 @@ import { $translate as t } from "qwik-speak";
 import { convert, getSettings } from "@/lib/calc";
 import { getCurrencyByCountry } from "@/lib/countries";
 import { Loader } from "@/components/ui";
+import { WorkTime } from "@/components/calc";
 
 export const Calculator = component$(() => {
   const showWorkTime = useSignal(false);
@@ -48,7 +49,7 @@ export const Calculator = component$(() => {
   });
 
   const handleChange = $((event: InputEvent) => {
-    state.amount = +(event.target as HTMLInputElement).value;
+    state.amount = Math.abs(+(event.target as HTMLInputElement).value);
   });
 
   const calculated = (
@@ -56,16 +57,6 @@ export const Calculator = component$(() => {
       <span>=</span>
       <span>{state.calculated.toFixed(2)}</span>
       <span>{state.myCurrency?.code}</span>
-    </div>
-  );
-
-  const workTime = (
-    <div className="form-block text-center text-2xl space-x-2">
-      <span>{t("app.or@@Or")}</span>
-      <span class="font-bold">{state.workTime.toFixed(2)}</span>
-      <span>
-        {t("app.hours@@hour(s)")} {t("app.of@@of")} {t("app.work@@work")}
-      </span>
     </div>
   );
 
@@ -92,7 +83,7 @@ export const Calculator = component$(() => {
       ) : (
         <>
           {calculated}
-          {showWorkTime.value && workTime}
+          {showWorkTime.value && <WorkTime hours={state.workTime} />}
         </>
       )}
     </div>
