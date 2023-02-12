@@ -9,9 +9,11 @@ import { defaultSettings, getSettings, saveSettings } from "@/lib/calc";
 import { success } from "@/lib/toast";
 import { useTooltips } from "@/lib/tooltip";
 import { CountrySelect } from "@/integrations/react/headless";
+import { getCountries } from "@/lib/countries";
 
 export default component$(() => {
   const settings = useStore<ISettings>(defaultSettings);
+  const countries = getCountries();
 
   useClientEffect$(() => {
     const { myCountry, whereAmI, calcHours, hourRate } = getSettings();
@@ -49,10 +51,11 @@ export default component$(() => {
 
           <CountrySelect
             id="myCountry"
+            countries={countries}
             value={settings.myCountry}
             placeholder={t("app.select_country@@Select country")}
             nothing={t("app.nothing_found@@Nothing found")}
-            onChange$={(value: string) => (settings.myCountry = value)}
+            onChange$={(value) => (settings.myCountry = value)}
           />
         </div>
 
@@ -64,6 +67,7 @@ export default component$(() => {
 
           <CountrySelect
             id="whereAmI"
+            countries={countries}
             value={settings.whereAmI}
             placeholder={t("app.select_country@@Select country")}
             nothing={t("app.nothing_found@@Nothing found")}

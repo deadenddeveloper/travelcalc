@@ -15,25 +15,25 @@ export const WorkTime = component$((props: IWorkTimeProps) => {
   }
 
   return (
-    <div className="form-block text-center text-xl space-x-2">
+    <div class="form-block text-center text-xl space-x-2">
       <div>{t("app.work_hours@@")}</div>
 
       {!days && !hours && !minutes ? (
         <span>{t("app.less_than_minute@@less than minute")}</span>
       ) : (
-        <div className="flex justify-center space-x-1">
+        <div class="flex justify-center space-x-1">
           {!!days && (
-            <span className="whitespace-nowrap">
+            <span class="whitespace-nowrap">
               <strong>{days}</strong> {p(days, "app.days")}
             </span>
           )}
           {!!hours && (
-            <span className="whitespace-nowrap">
+            <span class="whitespace-nowrap">
               <strong>{hours}</strong> {p(hours, "app.hours")}
             </span>
           )}
           {!!minutes && (
-            <span className="whitespace-nowrap">
+            <span class="whitespace-nowrap">
               <strong>{minutes}</strong> {p(minutes, "app.minutes")}
             </span>
           )}

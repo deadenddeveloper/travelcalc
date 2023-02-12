@@ -1254,6 +1254,10 @@ export const countries = [
   },
 ];
 
+export const getCountries = () => {
+  return countries;
+};
+
 export const getCountry = (code: string) => {
   return countries.find((c) => c.code === code);
 };

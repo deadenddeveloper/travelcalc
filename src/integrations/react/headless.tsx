@@ -4,32 +4,38 @@ import type { ICountry } from "@/lib/countries";
 
 import { qwikify$ } from "@builder.io/qwik-react";
 import { Combobox, Transition } from "@headlessui/react";
-import { Fragment, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { countries } from "@/lib/countries";
 
 interface ICountrySelectProps {
   id: string;
   value: string;
+  countries: ICountry[];
   onChange: (value: string) => string;
   placeholder?: string;
   nothing?: string;
 }
 
 export const CountrySelect = qwikify$((props: ICountrySelectProps) => {
-  const [selected, setSelected] = useState(
-    countries.find((c) => c.code === props.value)
-  );
+  const [selected, setSelected] = useState<ICountry | null>(null);
   const [query, setQuery] = useState("");
 
   const changeHandler = (country: ICountry) => {
     setSelected(country);
-    props.onChange(country.code);
+    props.onChange(country?.code);
   };
+
+  useEffect(() => {
+    const country = props.countries.find((c) => c.code === props.value);
+    if (country) {
+      setSelected(country);
+    }
+  }, [props.value]);
 
   const filteredCountries =
     query === ""
-      ? countries
-      : countries.filter((country) =>
+      ? props.countries
+      : props.countries.filter((country) =>
           country.name
             .toLowerCase()
             .replace(/\s+/g, "")
@@ -38,13 +44,18 @@ export const CountrySelect = qwikify$((props: ICountrySelectProps) => {
 
   return (
     <div className="w-full">
-      <Combobox value={selected} onChange={changeHandler}>
+      <Combobox
+        nullable={true}
+        defaultValue={null}
+        value={selected}
+        onChange={changeHandler}
+      >
         <div className="relative mt-1">
           <div className="relative w-full">
             <Combobox.Input
               id={props.id}
               className="w-full input"
-              displayValue={(country: ICountry) => country.name}
+              displayValue={(country: ICountry) => country?.name}
               onChange={(event) => setQuery(event.target.value)}
               placeholder={props.placeholder}
             />

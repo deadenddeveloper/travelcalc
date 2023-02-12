@@ -13,16 +13,15 @@ export default component$(() => {
     ready.value = isAppReady();
   });
 
-  const content =
-    null === ready.value ? (
-      <div class="text-center">
+  if (null === ready.value) {
+    return (
+      <div style="margin:0 auto;">
         <Loader />
       </div>
-    ) : ready.value ? (
-      <Calculator />
-    ) : (
-      <Intro />
     );
+  }
+
+  const content = true === ready.value ? <Calculator /> : <Intro />;
 
   return (
     <div class="container mx-auto px-2 md:px-0 py-8 space-y-8">{content}</div>
