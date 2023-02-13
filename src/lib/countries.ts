@@ -1,4 +1,5 @@
 import { getCurrency } from "@/lib/currencies";
+import { $translate as t } from "qwik-speak";
 
 export interface ICountry {
   code: string;
@@ -1255,7 +1256,14 @@ export const countries = [
 ];
 
 export const getCountries = () => {
-  return countries;
+  return countries
+    .map((c) => ({
+      ...c,
+      name: t(c.code),
+    }))
+    .sort((c1: ICountry, c2: ICountry) => {
+      return c1.name.localeCompare(c2.name);
+    });
 };
 
 export const getCountry = (code: string) => {

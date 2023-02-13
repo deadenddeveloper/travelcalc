@@ -13,7 +13,7 @@ export const config: SpeakConfig = {
     { lang: "de-DE", currency: "EUR", timeZone: "Europe/Berlin" },
     { lang: "ru-RU", currency: "RUB", timeZone: "Europe/Minsk" },
   ],
-  assets: ["app", "validation", "runtime"],
+  assets: ["app", "validation", "country", "runtime"],
 };
 
 export const loadTranslation$: LoadTranslationFn = $(
