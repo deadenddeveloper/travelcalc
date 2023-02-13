@@ -1,6 +1,7 @@
 {
   "app": {
     "amount_in": "Summe in",
+    "back_to_main": "Zu Hauptseite",
     "calc_hours": "Arbeitsstunden anzeigen",
     "calc_hours_notice": "Anzeige der Berechnung der Arbeitszeiten auf der Hauptseite",
     "copyright": "Gemacht für Menschen von <a href='https://romanmeyer.dev/de' target='_blank' class='underline text-skin-brand'>Roman Meyer</a>",

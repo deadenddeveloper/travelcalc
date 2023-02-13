@@ -1,6 +1,7 @@
 {
   "app": {
     "amount_in": "Amount in",
+    "back_to_main": "Back to main",
     "calc_hours": "Show hours of work",
     "calc_hours_notice": "Show the calculation of working hours on the home page",
     "copyright": "Made for people by <a href='https://romanmeyer.dev/en' target='_blank' class='underline text-skin-brand'>Roman Meyer</a>",

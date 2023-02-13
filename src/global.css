@@ -42,4 +42,7 @@ html, body {
         @apply rounded bg-skin-brand bg-opacity-75 hover:bg-opacity-100;
         @apply disabled:opacity-50 disabled:hover:bg-opacity-75 disabled:cursor-not-allowed;
     }
+    .btn-secondary {
+        @apply bg-skin-base border border-skin-brand border-opacity-75 hover:border-opacity-100;
+    }
 }

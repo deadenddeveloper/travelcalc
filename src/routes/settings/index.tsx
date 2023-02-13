@@ -4,12 +4,13 @@ import type { ISettings } from "@/lib/calc";
 import { $, component$, useClientEffect$, useStore } from "@builder.io/qwik";
 import { $translate as t } from "qwik-speak";
 import { FaIcon, Notice } from "@/components/ui";
-import { faSave } from "@fortawesome/free-solid-svg-icons";
+import { faCalculator, faSave } from "@fortawesome/free-solid-svg-icons";
 import { defaultSettings, getSettings, saveSettings } from "@/lib/calc";
 import { success } from "@/lib/toast";
 import { useTooltips } from "@/lib/tooltip";
 import { CountrySelect } from "@/integrations/react/headless";
 import { getCountries } from "@/lib/countries";
+import { Link } from "@builder.io/qwik-city";
 
 export default component$(() => {
   const settings = useStore<ISettings>(defaultSettings);
@@ -107,11 +108,15 @@ export default component$(() => {
           />
         </div>
 
-        <div class="text-center">
+        <div class="flex justify-between">
           <button class="btn" disabled={!canSave} onclick$={saveHandler}>
             <FaIcon icon={faSave} class="h-4 w-4" />
             <span>{t("app.save@@Save")}</span>
           </button>
+          <Link href="/" class="btn btn-secondary">
+            <FaIcon icon={faCalculator} class="h-4 w-4" />
+            <span>{t("app.back_to_main@@Back to main")}</span>
+          </Link>
         </div>
       </div>
     </div>

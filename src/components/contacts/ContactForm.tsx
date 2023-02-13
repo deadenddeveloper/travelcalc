@@ -1,9 +1,13 @@
 import { $, component$, useStore } from "@builder.io/qwik";
 import { $translate as t } from "qwik-speak";
 import { FaIcon, FormError } from "@/components/ui";
-import { faPaperPlane, faSpinner } from "@fortawesome/free-solid-svg-icons";
+import {
+  faCalculator,
+  faPaperPlane,
+  faSpinner,
+} from "@fortawesome/free-solid-svg-icons";
 import { success, failure } from "@/lib/toast";
-import { action$, zod$ } from "@builder.io/qwik-city";
+import { action$, Link, zod$ } from "@builder.io/qwik-city";
 import { send } from "@/lib/feedback";
 import { feedbackSchema } from "@/lib/validation";
 
@@ -129,7 +133,13 @@ export const ContactForm = component$(() => {
         )}
       </div>
 
-      <div class="text-center">{submitButton}</div>
+      <div class="flex justify-between">
+        {submitButton}
+        <Link href="/" class="btn btn-secondary">
+          <FaIcon icon={faCalculator} class="h-4 w-4" />
+          <span>{t("app.back_to_main@@Back to main")}</span>
+        </Link>
+      </div>
     </form>
   );
 });
