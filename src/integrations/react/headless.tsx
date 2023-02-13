@@ -5,6 +5,7 @@ import type { ICountry } from "@/lib/countries";
 import { qwikify$ } from "@builder.io/qwik-react";
 import { Combobox, Transition } from "@headlessui/react";
 import { Fragment, useEffect, useState } from "react";
+import { CheckIcon, ChevronUpDownIcon } from "@heroicons/react/20/solid";
 
 interface ICountrySelectProps {
   id: string;
@@ -18,7 +19,6 @@ interface ICountrySelectProps {
 export const CountrySelect = qwikify$((props: ICountrySelectProps) => {
   const [selected, setSelected] = useState<ICountry | null>(null);
   const [query, setQuery] = useState("");
-
   const changeHandler = (country: ICountry) => {
     setSelected(country);
     props.onChange(country?.code);
@@ -58,7 +58,12 @@ export const CountrySelect = qwikify$((props: ICountrySelectProps) => {
               onChange={(event) => setQuery(event.target.value)}
               placeholder={props.placeholder}
             />
-            <Combobox.Button className="absolute inset-y-0 right-0 flex items-center pr-2"></Combobox.Button>
+            <Combobox.Button className="absolute inset-y-0 right-0 flex items-center pr-2">
+              <ChevronUpDownIcon
+                className="h-5 w-5 text-gray-400"
+                aria-hidden="true"
+              />
+            </Combobox.Button>
           </div>
           <Transition
             as={Fragment}
@@ -97,7 +102,9 @@ export const CountrySelect = qwikify$((props: ICountrySelectProps) => {
                             className={`absolute inset-y-0 left-0 flex items-center pl-3 ${
                               active ? "" : "text-skin-brand"
                             }`}
-                          ></span>
+                          >
+                            <CheckIcon className="h-5 w-5" aria-hidden="true" />
+                          </span>
                         ) : null}
                       </>
                     )}
