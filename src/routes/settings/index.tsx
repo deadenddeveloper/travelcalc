@@ -50,6 +50,7 @@ export default component$(() => {
           </label>
 
           <CountrySelect
+            client:load
             id="myCountry"
             countries={countries}
             value={settings.myCountry}
@@ -66,6 +67,7 @@ export default component$(() => {
           </label>
 
           <CountrySelect
+            client:load
             id="whereAmI"
             countries={countries}
             value={settings.whereAmI}
