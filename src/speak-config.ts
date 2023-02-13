@@ -18,7 +18,12 @@ export const config: SpeakConfig = {
 
 export const loadTranslation$: LoadTranslationFn = $(
   async (lang: string, asset: string, origin?: string) => {
-    if (import.meta.env.DEV || asset === "validation" || asset === "runtime") {
+    if (
+      import.meta.env.DEV ||
+      asset === "validation" ||
+      asset === "runtime" ||
+      asset === "country"
+    ) {
       let url = "";
       // Absolute urls on server
       if (isServer && origin) {
