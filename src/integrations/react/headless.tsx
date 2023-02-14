@@ -5,7 +5,7 @@ import type { ICountry } from "@/lib/countries";
 import { qwikify$ } from "@builder.io/qwik-react";
 import { Combobox, Transition } from "@headlessui/react";
 import { Fragment, useEffect, useState } from "react";
-import { CheckIcon, ChevronUpDownIcon } from "@heroicons/react/20/solid";
+import { ChevronUpDownIcon } from "@heroicons/react/20/solid";
 
 import "@/assets/flags.css";
 
