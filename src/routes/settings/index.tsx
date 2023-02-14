@@ -58,6 +58,7 @@ export default component$(() => {
             placeholder={t("app.select_country@@Select country")}
             nothing={t("app.nothing_found@@Nothing found")}
             onChange$={(value) => (settings.myCountry = value)}
+            displayValue={settings.myCountry && t(settings.myCountry)}
           />
         </div>
 
@@ -75,6 +76,7 @@ export default component$(() => {
             placeholder={t("app.select_country@@Select country")}
             nothing={t("app.nothing_found@@Nothing found")}
             onChange$={(value) => (settings.whereAmI = value)}
+            displayValue={settings.whereAmI && t(settings.whereAmI)}
           />
         </div>
 

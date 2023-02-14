@@ -7,11 +7,14 @@ import { Combobox, Transition } from "@headlessui/react";
 import { Fragment, useEffect, useState } from "react";
 import { CheckIcon, ChevronUpDownIcon } from "@heroicons/react/20/solid";
 
+import "@/assets/flags.css";
+
 interface ICountrySelectProps {
   id: string;
   value: string;
   countries: ICountry[];
   onChange: (value: string) => string;
+  displayValue: string;
   placeholder?: string;
   nothing?: string;
 }
@@ -35,7 +38,7 @@ export const CountrySelect = qwikify$((props: ICountrySelectProps) => {
     query === ""
       ? props.countries
       : props.countries.filter((country) =>
-          country.name
+          (country.name + country.currency)
             .toLowerCase()
             .replace(/\s+/g, "")
             .includes(query.toLowerCase().replace(/\s+/g, ""))
@@ -55,7 +58,11 @@ export const CountrySelect = qwikify$((props: ICountrySelectProps) => {
             <Combobox.Input
               id={props.id}
               className="w-full input"
-              displayValue={(country: ICountry) => country?.name}
+              displayValue={() =>
+                selected && props.displayValue
+                  ? `${props.displayValue} (${selected.currency})`
+                  : ""
+              }
               onChange={(event) => setQuery(event.target.value)}
               placeholder={props.placeholder}
             />
@@ -82,31 +89,28 @@ export const CountrySelect = qwikify$((props: ICountrySelectProps) => {
                 filteredCountries.map((country) => (
                   <Combobox.Option
                     key={country.code}
-                    className={({ active }) =>
-                      `relative cursor-default select-none py-2 pl-10 pr-4 ${
-                        active ? "bg-skin-brand" : ""
+                    className={({ selected, active }) =>
+                      `relative cursor-default select-none py-2 px-4 ${
+                        active || selected ? "bg-skin-brand" : ""
                       }`
                     }
                     value={country}
                   >
-                    {({ selected, active }) => (
+                    {({ selected }) => (
                       <>
                         <span
-                          className={`block truncate ${
+                          className={`flex items-center justify-between space-x-1 ${
                             selected ? "font-medium" : "font-normal"
                           }`}
                         >
-                          {country.name}
-                        </span>
-                        {selected ? (
-                          <span
-                            className={`absolute inset-y-0 left-0 flex items-center pl-3 ${
-                              active ? "" : "text-skin-brand"
-                            }`}
-                          >
-                            <CheckIcon className="h-5 w-5" aria-hidden="true" />
+                          <i
+                            className={`flag ${country.code.toLowerCase()}`}
+                          ></i>
+                          <span className="truncate flex-grow">
+                            {country.name}
                           </span>
-                        ) : null}
+                          <span>{country.currency}</span>
+                        </span>
                       </>
                     )}
                   </Combobox.Option>
