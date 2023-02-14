@@ -48,6 +48,7 @@ export const CountrySelect = qwikify$((props: ICountrySelectProps) => {
         defaultValue={null}
         value={selected}
         onChange={changeHandler}
+        by="code"
       >
         <div className="relative mt-1">
           <div className="relative w-full">
