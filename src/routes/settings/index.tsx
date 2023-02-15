@@ -3,10 +3,10 @@ import type { ISettings } from "@/lib/calc";
 
 import { $, component$, useClientEffect$, useStore } from "@builder.io/qwik";
 import { $translate as t } from "qwik-speak";
-import { FaIcon, Notice } from "@/components/ui";
+import { FaIcon, Notice, Locator } from "@/components/ui";
 import { faCalculator, faSave } from "@fortawesome/free-solid-svg-icons";
 import { defaultSettings, getSettings, saveSettings } from "@/lib/calc";
-import { success } from "@/lib/toast";
+import { failure, success } from "@/lib/toast";
 import { useTooltips } from "@/lib/tooltip";
 import { CountrySelect } from "@/integrations/react/headless";
 import { getCountries } from "@/lib/countries";
@@ -27,7 +27,7 @@ export default component$(() => {
 
   useTooltips();
 
-  const scsMsg = t("app.settings_saved@@Settings saved");
+  const settingsSavedMsg = t("app.settings_saved@@Settings saved");
 
   const canSave =
     settings.myCountry &&
@@ -37,7 +37,7 @@ export default component$(() => {
   const saveHandler = $((event: MouseEvent) => {
     if (!(event.target as Element)?.closest("button")?.disabled) {
       saveSettings(settings);
-      success(scsMsg);
+      success(settingsSavedMsg);
     }
   });
 
@@ -50,16 +50,25 @@ export default component$(() => {
             <Notice notice={t("app.my_country_notice")} />
           </label>
 
-          <CountrySelect
-            client:load
-            id="myCountry"
-            countries={countries}
-            value={settings.myCountry}
-            placeholder={t("app.select_country@@Select country")}
-            nothing={t("app.nothing_found@@Nothing found")}
-            onChange$={(value) => (settings.myCountry = value)}
-            displayValue={settings.myCountry && t(settings.myCountry)}
-          />
+          <div class="flex space-x-2 items-end">
+            <div class="flex-grow">
+              <CountrySelect
+                client:load
+                id="myCountry"
+                countries={countries}
+                value={settings.myCountry}
+                placeholder={t("app.select_country@@Select country")}
+                nothing={t("app.nothing_found@@Nothing found")}
+                onChange$={(value) => (settings.myCountry = value)}
+                displayValue={settings.myCountry && t(settings.myCountry)}
+              />
+            </div>
+            <Locator
+              onSuccess$={(code) => {
+                settings.myCountry = code;
+              }}
+            />
+          </div>
         </div>
 
         <div class="form-block">
@@ -68,16 +77,25 @@ export default component$(() => {
             <Notice notice={t("app.where_am_i_notice")} />
           </label>
 
-          <CountrySelect
-            client:load
-            id="whereAmI"
-            countries={countries}
-            value={settings.whereAmI}
-            placeholder={t("app.select_country@@Select country")}
-            nothing={t("app.nothing_found@@Nothing found")}
-            onChange$={(value) => (settings.whereAmI = value)}
-            displayValue={settings.whereAmI && t(settings.whereAmI)}
-          />
+          <div class="flex space-x-2 items-end">
+            <div class="flex-grow">
+              <CountrySelect
+                client:load
+                id="whereAmI"
+                countries={countries}
+                value={settings.whereAmI}
+                placeholder={t("app.select_country@@Select country")}
+                nothing={t("app.nothing_found@@Nothing found")}
+                onChange$={(value) => (settings.whereAmI = value)}
+                displayValue={settings.whereAmI && t(settings.whereAmI)}
+              />
+            </div>
+            <Locator
+              onSuccess$={(code) => {
+                settings.whereAmI = code;
+              }}
+            />
+          </div>
         </div>
 
         <div class="form-block">

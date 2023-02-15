@@ -5,6 +5,7 @@
     "calc_hours": "Arbeitsstunden anzeigen",
     "calc_hours_notice": "Anzeige der Berechnung der Arbeitszeiten auf der Hauptseite",
     "copyright": "Gemacht für Menschen von <a href='https://romanmeyer.dev/de' target='_blank' class='underline text-skin-brand'>Roman Meyer</a>",
+    "country_error": "Daten können nicht abgerufen werden",
     "days": {
       "one": "Tag",
       "other": "Tage"
@@ -14,6 +15,7 @@
     "feedback": {
       "success": "Ihre Nachricht wurde erfolgreich gesendet"
     },
+    "find_by_geolocation": "Land über Geolocation finden",
     "intro": "Diese App hilft Ihnen bei der Preiskalkulierung im Ausland. Aber zuerst müssen Sie in den Einstellungen Ihre Währung und diejenige, aus der Sie umrechnen möchten, auswählen.",
     "hello": "Hallo",
     "hour_rate": "Stundenlohn",

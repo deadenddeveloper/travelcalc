@@ -5,6 +5,7 @@
     "calc_hours": "Show hours of work",
     "calc_hours_notice": "Show the calculation of working hours on the home page",
     "copyright": "Made for people by <a href='https://romanmeyer.dev/en' target='_blank' class='underline text-skin-brand'>Roman Meyer</a>",
+    "country_error": "Failed to receive data",
     "days": {
       "one": "day",
       "other": "days"
@@ -14,6 +15,7 @@
     "feedback": {
       "success": "Your message has been successfully sent"
     },
+    "find_by_geolocation": "Find country by geolocation",
     "hello": "Hello",
     "hour_rate": "Hour rate",
     "hour_rate_notice": "Enter your hourly rate in your currency",

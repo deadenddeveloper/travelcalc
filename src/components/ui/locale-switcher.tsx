@@ -1,4 +1,6 @@
-import { changeLocale, SpeakLocale, useSpeakContext } from "qwik-speak";
+import type { SpeakLocale } from "qwik-speak";
+
+import { changeLocale, useSpeakContext } from "qwik-speak";
 import { $, component$, useClientEffect$ } from "@builder.io/qwik";
 
 export const LocaleSwitcher = component$(() => {
