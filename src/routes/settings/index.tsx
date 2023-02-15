@@ -6,7 +6,7 @@ import { $translate as t } from "qwik-speak";
 import { FaIcon, Notice, Locator } from "@/components/ui";
 import { faCalculator, faSave } from "@fortawesome/free-solid-svg-icons";
 import { defaultSettings, getSettings, saveSettings } from "@/lib/calc";
-import { failure, success } from "@/lib/toast";
+import { success } from "@/lib/toast";
 import { useTooltips } from "@/lib/tooltip";
 import { CountrySelect } from "@/integrations/react/headless";
 import { getCountries } from "@/lib/countries";
