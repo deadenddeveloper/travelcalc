@@ -33,7 +33,7 @@ export const Locator = component$((props: ILocatorProps) => {
 
   return (
     <button
-      class="btn w-10 justify-center"
+      class="btn btn-icon"
       data-tooltip
       title={t("app.find_by_geolocation@@Find my location")}
       onClick$={handleClick}

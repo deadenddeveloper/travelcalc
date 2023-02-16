@@ -11,13 +11,16 @@ import {
 import { $translate as t } from "qwik-speak";
 import { convert, getSettings } from "@/lib/calc";
 import { getCurrencyByCountry } from "@/lib/countries";
-import { Loader } from "@/components/ui";
-import { WorkTime } from "@/components/calc";
+import { FaIcon, Loader } from "@/components/ui";
+import { NumPad, WorkTime } from "@/components/calc";
+import { faCalculator } from "@fortawesome/free-solid-svg-icons";
+import { setInputFilter } from "~/lib/dom";
 
 export const Calculator = component$(() => {
   const showWorkTime = useSignal(false);
   const state = useStore({
-    amount: 0,
+    showNumPad: true,
+    amount: "",
     calculated: 0,
     workTime: 0,
     hourRate: 0,
@@ -34,6 +37,9 @@ export const Calculator = component$(() => {
     state.hourRate = settings.hourRate;
     showWorkTime.value = settings.calcHours;
 
+    setInputFilter(inputRef.value as Element, function (value) {
+      return /^\d*\.?\d*$/.test(value);
+    });
     inputRef.value?.focus();
   });
 
@@ -41,15 +47,15 @@ export const Calculator = component$(() => {
     track(() => state.amount);
     state.calculated =
       (await convert(
-        state.amount,
+        Math.abs(+state.amount),
         state.foreignCurrency?.code as string,
         state.myCurrency?.code as string
       )) || 0;
     state.workTime = state.hourRate ? state.calculated / state.hourRate : 0;
   });
 
-  const handleChange = $((event: InputEvent) => {
-    state.amount = Math.abs(+(event.target as HTMLInputElement).value);
+  const handleChange = $(() => {
+    state.amount = (inputRef.value as HTMLInputElement).value;
   });
 
   const calculated = (
@@ -68,15 +74,34 @@ export const Calculator = component$(() => {
         <label for="value">
           {t("app.amount_in@@Amount in")} {state.foreignCurrency?.code}
         </label>
-        <input
-          id="value"
-          class="input"
-          type="number"
-          ref={inputRef}
+        <div class="flex space-x-2">
+          <input
+            id="value"
+            class="input"
+            type="text"
+            maxLength={10}
+            ref={inputRef}
+            value={state.amount}
+            onInput$={handleChange}
+          />
+          <button
+            class="btn btn-icon"
+            onClick$={() => (state.showNumPad = !state.showNumPad)}
+            data-tooltip
+            title={t("app.toggle_numpad@@Show / hide numpad")}
+          >
+            <FaIcon icon={faCalculator} class="w-4 h-4" />
+          </button>
+        </div>
+      </div>
+
+      {state.showNumPad && inputRef.value && (
+        <NumPad
           value={state.amount}
+          controls={inputRef.value}
           onInput$={handleChange}
         />
-      </div>
+      )}
 
       {resource.loading ? (
         <div class="text-center">

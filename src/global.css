@@ -45,4 +45,7 @@ html, body {
     .btn-secondary {
         @apply bg-skin-base border border-skin-brand border-opacity-75 hover:border-opacity-100;
     }
+    .btn-icon {
+        @apply w-10 justify-center;
+    }
 }
