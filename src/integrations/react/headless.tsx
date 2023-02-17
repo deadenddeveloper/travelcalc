@@ -99,7 +99,7 @@ export const CountrySelect = qwikify$((props: ICountrySelectProps) => {
                     {({ selected }) => (
                       <>
                         <span
-                          className={`flex items-center justify-between space-x-1 ${
+                          className={`flex items-end justify-between space-x-1 ${
                             selected ? "font-medium" : "font-normal"
                           }`}
                         >
