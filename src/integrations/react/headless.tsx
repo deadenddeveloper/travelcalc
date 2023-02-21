@@ -66,7 +66,12 @@ export const CountrySelect = qwikify$((props: ICountrySelectProps) => {
               onChange={(event) => setQuery(event.target.value)}
               placeholder={props.placeholder}
             />
-            <Combobox.Button className="absolute inset-y-0 right-0 flex items-center pr-2">
+            <Combobox.Button
+              className="absolute inset-y-0 right-0 flex items-center pr-2"
+              role="presentation"
+              id=""
+              aria-label="Toggle"
+            >
               <ChevronUpDownIcon
                 className="h-5 w-5 text-gray-400"
                 aria-hidden="true"
