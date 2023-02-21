@@ -4,13 +4,14 @@
     "back_to_main": "Zur Hauptseite",
     "calc_hours": "Arbeitsstunden anzeigen",
     "calc_hours_notice": "Anzeige der Berechnung der Arbeitszeiten auf der Hauptseite",
-    "copyright": "Gemacht für Menschen von <a href='https://romanmeyer.dev/de' target='_blank' class='underline text-skin-brand'>Roman Meyer</a>",
+    "copyright": "Gemacht für Menschen von <a href='https://romanmeyer.dev/de' target='_blank' class='underline'>Roman Meyer</a>",
     "country_error": "Daten können nicht abgerufen werden",
     "days": {
       "one": "Tag",
       "other": "Tage"
     },
     "email": "Ihr E-Mail",
+    "get_from_image": "Daten aus dem Bild abrufen",
     "go_to_settings": "Zu den Einstellungen",
     "feedback": {
       "success": "Ihre Nachricht wurde erfolgreich gesendet"

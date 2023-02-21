@@ -109,7 +109,7 @@ export const NumPad = component$((props: INumPadProps) => {
     { icon: fa9, f: $(() => insert(9)) },
     {
       icon: faCircle,
-      classes: "h-1 w-1",
+      classes: "h-2 w-2",
       f: $(() => insert(".")),
       disabled: dotDisabled.value,
     },
@@ -125,11 +125,11 @@ export const NumPad = component$((props: INumPadProps) => {
       <div class="grid grid-cols-3 gap-2">
         {buttons.map((b) => (
           <button
-            class="btn btn-icon"
+            class="btn h-16 w-16 items-center justify-center"
             onClick$={(e) => handleClick(e as unknown as MouseEvent, b)}
             disabled={!!b.disabled}
           >
-            <FaIcon icon={b.icon} class={b.classes || "h-4 w-4"} />
+            <FaIcon icon={b.icon} class={b.classes || "h-8 w-8"} />
           </button>
         ))}
       </div>

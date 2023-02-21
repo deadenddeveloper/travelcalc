@@ -9,7 +9,7 @@ export const Footer = component$(() => {
     <footer>
       <div class="container px-2 md:px-0 py-2 mx-auto flex justify-between items-center">
         <div>
-          <Link href="/settings">
+          <Link href="/settings" title={t("app.settings@@Go to settings")}>
             <FaIcon
               icon={faCog}
               class="h-6 w-6 hover:text-skin-brand hover:animate-spin"

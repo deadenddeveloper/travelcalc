@@ -14,12 +14,15 @@ import { getCurrencyByCountry } from "@/lib/countries";
 import { FaIcon, Loader } from "@/components/ui";
 import { NumPad, WorkTime } from "@/components/calc";
 import { faCalculator } from "@fortawesome/free-solid-svg-icons";
-import { setInputFilter } from "~/lib/dom";
+import { setInputFilter } from "@/lib/dom";
+import { useTooltips } from "@/lib/tooltip";
 
 export const Calculator = component$(() => {
+  useTooltips();
+
   const showWorkTime = useSignal(false);
   const state = useStore({
-    showNumPad: true,
+    showNumPad: false,
     amount: "",
     calculated: 0,
     workTime: 0,
@@ -84,6 +87,7 @@ export const Calculator = component$(() => {
             value={state.amount}
             onInput$={handleChange}
           />
+
           <button
             class="btn btn-icon"
             onClick$={() => (state.showNumPad = !state.showNumPad)}

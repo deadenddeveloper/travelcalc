@@ -4,13 +4,14 @@
     "back_to_main": "Back to main",
     "calc_hours": "Show hours of work",
     "calc_hours_notice": "Show the calculation of working hours on the home page",
-    "copyright": "Made for people by <a href='https://romanmeyer.dev/en' target='_blank' class='underline text-skin-brand'>Roman Meyer</a>",
+    "copyright": "Made for people by <a href='https://romanmeyer.dev/en' target='_blank' class='underline'>Roman Meyer</a>",
     "country_error": "Failed to receive data",
     "days": {
       "one": "day",
       "other": "days"
     },
     "email": "Your email",
+    "get_from_image": "Get data from image",
     "go_to_settings": "Go to settings",
     "feedback": {
       "success": "Your message has been successfully sent"
