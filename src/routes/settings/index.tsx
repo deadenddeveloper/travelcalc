@@ -7,7 +7,6 @@ import { FaIcon, Notice, Locator } from "@/components/ui";
 import { faCalculator, faSave } from "@fortawesome/free-solid-svg-icons";
 import { defaultSettings, getSettings, saveSettings } from "@/lib/calc";
 import { success } from "@/lib/toast";
-import { useTooltips } from "@/lib/tooltip";
 import { CountrySelect } from "@/integrations/react/headless";
 import { getCountries } from "@/lib/countries";
 import { Link } from "@builder.io/qwik-city";
@@ -24,8 +23,6 @@ export default component$(() => {
     settings.calcHours = calcHours;
     settings.hourRate = hourRate;
   });
-
-  useTooltips();
 
   const settingsSavedMsg = t("app.settings_saved@@Settings saved");
 

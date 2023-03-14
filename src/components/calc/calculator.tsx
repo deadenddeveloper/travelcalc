@@ -1,4 +1,5 @@
 import type { ICurrency } from "@/lib/currencies";
+import { IImageData } from "@/lib/image";
 
 import {
   $,
@@ -12,14 +13,17 @@ import { $translate as t } from "qwik-speak";
 import { convert, getSettings } from "@/lib/calc";
 import { getCurrencyByCountry } from "@/lib/countries";
 import { FaIcon, Loader } from "@/components/ui";
-import { NumPad, WorkTime } from "@/components/calc";
+import {
+  NumPad,
+  WorkTime,
+  ImageUploader,
+  ImageViewer,
+} from "@/components/calc";
 import { faCalculator } from "@fortawesome/free-solid-svg-icons";
 import { setInputFilter } from "@/lib/dom";
-import { useTooltips } from "@/lib/tooltip";
+import { Link } from "@builder.io/qwik-city";
 
 export const Calculator = component$(() => {
-  useTooltips();
-
   const showWorkTime = useSignal(false);
   const state = useStore({
     showNumPad: false,
@@ -29,6 +33,7 @@ export const Calculator = component$(() => {
     hourRate: 0,
     myCurrency: {} as ICurrency | undefined,
     foreignCurrency: {} as ICurrency | undefined,
+    imageData: null as IImageData | null,
   });
 
   const inputRef = useSignal<HTMLInputElement>();
@@ -67,15 +72,23 @@ export const Calculator = component$(() => {
       <span>
         {state.calculated.toFixed(state.myCurrency?.decimal_digits || 2)}
       </span>
-      <span>{state.myCurrency?.symbol || state.myCurrency?.code}</span>
+      <Link href="/settings" class="border-b border-dashed border-skin-brand">
+        {state.myCurrency?.symbol || state.myCurrency?.code}
+      </Link>
     </div>
   );
 
   return (
     <div class="mx-auto md:w-1/2 space-y-8">
       <div class="form-block">
-        <label for="value">
-          {t("app.amount_in@@Amount in")} {state.foreignCurrency?.code}
+        <label for="value" class="flex space-x-1">
+          <span>{t("app.amount_in@@Amount in")}</span>
+          <Link
+            href="/settings"
+            class="border-b border-dashed border-skin-brand"
+          >
+            {state.foreignCurrency?.code}
+          </Link>
         </label>
         <div class="flex space-x-2">
           <input
@@ -86,6 +99,12 @@ export const Calculator = component$(() => {
             ref={inputRef}
             value={state.amount}
             onInput$={handleChange}
+          />
+
+          <ImageUploader
+            onSuccess$={(data) => {
+              state.imageData = data;
+            }}
           />
 
           <button
@@ -116,6 +135,17 @@ export const Calculator = component$(() => {
           {calculated}
           {showWorkTime.value && <WorkTime hours={state.workTime} />}
         </>
+      )}
+
+      {state.imageData && (
+        <ImageViewer
+          data={state.imageData}
+          myCurrency={state.myCurrency as ICurrency}
+          foreignCurrency={state.foreignCurrency as ICurrency}
+          onClose$={() => {
+            state.imageData = null;
+          }}
+        />
       )}
     </div>
   );

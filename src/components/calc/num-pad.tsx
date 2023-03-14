@@ -20,7 +20,7 @@ import {
   faDeleteLeft,
   faRemove,
 } from "@fortawesome/free-solid-svg-icons";
-import { spliceSlice } from "~/lib/str";
+import { spliceSlice } from "@/lib/str";
 
 interface IButton {
   icon: IconDefinition;

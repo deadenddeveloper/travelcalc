@@ -8,7 +8,6 @@ import {
   faStackOverflow,
   faTelegram,
 } from "@fortawesome/free-brands-svg-icons";
-import { useTooltips } from "@/lib/tooltip";
 
 export const links = [
   {
@@ -44,8 +43,6 @@ export const links = [
 ];
 
 export const Links = component$(() => {
-  useTooltips();
-
   return (
     <ul class="mx-auto flex justify-between w-full sm:w-1/2">
       {links.map((link) => (
