@@ -13,6 +13,7 @@
     "email": "Ihr E-Mail",
     "get_from_image": "Daten aus dem Bild abrufen",
     "go_to_settings": "Zu den Einstellungen",
+    "image_no_prices": "Es gibt keine Preise auf dem Bild",
     "feedback": {
       "success": "Ihre Nachricht wurde erfolgreich gesendet"
     },

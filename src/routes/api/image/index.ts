@@ -12,7 +12,6 @@ export const onPost: RequestHandler = async ({ json, headers, request }) => {
     return json(422, { error: "image.invalid" });
   }
 
-  console.log("IMAGE", body.image);
   const fd = new FormData();
   fd.append("base64image", body.image);
   fd.append("isOverlayRequired", "true");
@@ -26,7 +25,6 @@ export const onPost: RequestHandler = async ({ json, headers, request }) => {
   });
   const result = await response.json();
 
-  console.log("RESULT", result);
   if (result.ErrorMessage && result.ErrorMessage.length) {
     return json(422, { error: "image.invalid" });
   }

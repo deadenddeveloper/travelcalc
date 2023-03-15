@@ -13,6 +13,7 @@
     "email": "Your email",
     "get_from_image": "Get data from image",
     "go_to_settings": "Go to settings",
+    "image_no_prices": "There are no prices found on the image",
     "feedback": {
       "success": "Your message has been successfully sent"
     },

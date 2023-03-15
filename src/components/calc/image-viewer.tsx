@@ -3,10 +3,12 @@ import type { ICurrency } from "@/lib/currencies";
 import type { PropFunction } from "@builder.io/qwik";
 
 import { component$, useSignal } from "@builder.io/qwik";
+import { $translate as t } from "qwik-speak";
 import { FaIcon } from "@/components/ui";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import { PriceValue } from "@/components/calc";
 import { convert } from "@/lib/calc";
+import { failure } from "~/lib/toast";
 
 interface IImageViewerProps {
   data: IImageData;
@@ -23,6 +25,10 @@ export const ImageViewer = component$((props: IImageViewerProps) => {
   const img = useSignal<HTMLImageElement>();
   const nw = img.value?.naturalWidth || 1;
   const nh = img.value?.naturalHeight || 1;
+
+  if (!props.data.values.length) {
+    failure(t("app.image_no_prices@@There are no prices on the image"));
+  }
 
   const getTitle = async (value: IParsingValue) => {
     const v = Math.abs(+value.content);

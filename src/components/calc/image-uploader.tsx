@@ -35,15 +35,12 @@ export const ImageUploader = component$((props: IImageUploaderProps) => {
 
     fileReader.addEventListener("load", async function (e) {
       loading.value = true;
-      const image = e.target?.result;
 
-      const result = await processImage(image as string);
+      const result = await processImage(e.target?.result as string);
 
       if (200 === result.status) {
         props.onSuccess$(result.data as IImageData);
-      }
-
-      if (422 === result.status) {
+      } else {
         failure(errMsg);
       }
 

@@ -28,9 +28,9 @@ interface IParsingData {
 }
 
 export const processParsedResult = (parsed: IParsingData) => {
-  const lines = parsed.ParsedResults[0].TextOverlay.Lines;
+  const lines = parsed.ParsedResults[0].TextOverlay?.Lines;
 
-  if (!lines.length) {
+  if (!lines || !lines.length) {
     return [];
   }
 
@@ -44,28 +44,86 @@ export const processParsedResult = (parsed: IParsingData) => {
     .filter((word) => +word.content);
 };
 
-export const processImage = async (image: string) => {
-  const response = await fetch("/api/image", {
-    method: "POST",
-    body: JSON.stringify({
-      image,
-    }),
-  });
+const resizeImage = (
+  img: HTMLImageElement,
+  maxHeight = 1000,
+  maxWidth = 1000,
+  quality = 0.7
+) => {
+  const canvas = document.createElement("canvas");
 
-  if (200 !== response.status) {
-    return {
-      status: response.status,
-    };
+  let { width, height } = img;
+
+  if (width > height) {
+    if (width > maxWidth) {
+      height = Math.round((height *= maxWidth / width));
+      width = maxWidth;
+    }
+  } else {
+    if (height > maxHeight) {
+      width = Math.round((width *= maxHeight / height));
+      height = maxHeight;
+    }
   }
 
-  // TODO hash image
-  // TODO save into storage
+  canvas.width = width;
+  canvas.height = height;
+  const ctx = canvas.getContext("2d");
 
-  return {
-    status: response.status,
-    data: {
-      image,
-      values: processParsedResult(await response.json()),
-    },
-  };
+  if (ctx) {
+    ctx.drawImage(img, 0, 0, width, height);
+  }
+
+  return canvas.toDataURL("image/jpeg", quality);
+};
+
+const loadImage = (url: string) => {
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+    img.src = url;
+    img.onload = () => {
+      resolve(img);
+    };
+    img.onerror = (e) => {
+      reject(e);
+    };
+  });
+};
+
+const prepareImage = async (base64image: string) => {
+  return resizeImage((await loadImage(base64image)) as HTMLImageElement);
+};
+
+export const processImage = async (base64image: string) => {
+  try {
+    const image = await prepareImage(base64image);
+
+    const response = await fetch("/api/image", {
+      method: "POST",
+      body: JSON.stringify({
+        image,
+      }),
+    });
+
+    if (200 !== response.status) {
+      return {
+        status: response.status,
+      };
+    }
+
+    // TODO hash image
+    // TODO save into storage
+
+    return {
+      status: response.status,
+      data: {
+        image,
+        values: processParsedResult(await response.json()),
+      },
+    };
+  } catch (e) {
+    return {
+      status: 500,
+    };
+  }
 };
