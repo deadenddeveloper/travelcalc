@@ -1,3 +1,6 @@
+import { cyrb53 } from "@/lib/str";
+import localforage from "localforage";
+
 export interface IImageData {
   image: string;
   values: IParsingValue[];
@@ -97,6 +100,18 @@ const prepareImage = async (base64image: string) => {
 export const processImage = async (base64image: string) => {
   try {
     const image = await prepareImage(base64image);
+    const hash = "v_" + cyrb53(base64image);
+    const saved = await localforage.getItem(hash);
+
+    if (saved) {
+      return {
+        status: 200,
+        data: {
+          image,
+          values: saved,
+        },
+      };
+    }
 
     const response = await fetch("/api/image", {
       method: "POST",
@@ -111,14 +126,14 @@ export const processImage = async (base64image: string) => {
       };
     }
 
-    // TODO hash image
-    // TODO save into storage
+    const values = processParsedResult(await response.json());
+    localforage.setItem(hash, values);
 
     return {
       status: response.status,
       data: {
         image,
-        values: processParsedResult(await response.json()),
+        values,
       },
     };
   } catch (e) {
